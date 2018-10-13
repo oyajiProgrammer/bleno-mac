@@ -46,6 +46,9 @@
 
 - (void)startAdvertisingIBeacon:(NSData *)data {
     NSLog(@"startAdvertisingIBeacon:%@", data);
+    [self.peripheralManager startAdvertising:@{
+       "kCBAdvDataAppleBeaconKey" : data 
+    }];
 }
 
 - (void)startAdvertisingWithEIRData:(NSData *)data {
