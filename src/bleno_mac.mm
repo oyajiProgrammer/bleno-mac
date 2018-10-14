@@ -82,8 +82,8 @@ Napi::Value BlenoMac::StartAdvertisingIBeacon(const Napi::CallbackInfo& info) {
     NSLog(@"BlenoMac::StartAdvertisingIBeacon");
     
     CHECK_MANAGER();
-    ARG1(String, Array);
-    NSData *data = napiToData(info[0].As<Napi::Buffer<int8_t>>());
+    ARG1(Buffer);
+    NSData *data = napiToData(info[0].As<Napi::Buffer<Byte>>());
     
     [peripheralManager startAdvertisingIBeacon: data];
 
